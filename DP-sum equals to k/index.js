@@ -19,6 +19,17 @@ function equalPartition(arr, n)
             return 0
         }
         
-        
+        function check(i,targetSum){
+            if(targetSum==0){
+                ans=1
+                return
+            }
+            if(i==n){
+                return 
+            }
+            if(ans==1){return}
+            check(i+1,targetSum-arr[i])
+            check(i+1,targetSum)
+        }
           
     }
