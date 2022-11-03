@@ -14,3 +14,39 @@ You have to print the maximum value possible of the sum of building speeds of N 
 
 */
 
+function runProgram(input) {
+    var a=input.split('\n')
+    var n=Number(a[0])
+        var arr=a[1].split(' ').map(Number)
+        arr.sort(function(a,b){return a-b})
+        op(n,arr)
+
+    function op(n,arr){
+        var s=0
+        for(var i=0;i<2*n;i+=2){
+            s+=arr[i]
+        }
+        console.log(s)
+
+}
+}
+if (process.env.USER === "") {
+  runProgram(``);
+} else {
+  process.stdin.resume();
+  process.stdin.setEncoding("ascii");
+  let read = "";
+  process.stdin.on("data", function (input) {
+    read += input;
+  });
+  process.stdin.on("end", function () {
+    read = read.replace(/\n$/, "");
+    read = read.replace(/\n$/, "");
+    runProgram(read);
+  });
+  process.on("SIGINT", function () {
+    read = read.replace(/\n$/, "");
+    runProgram(read);
+    process.exit(0);
+  });
+}
